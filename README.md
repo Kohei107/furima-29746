@@ -11,9 +11,7 @@
 | first_name       | string  | null: false |
 | family_name_kana | string  | null: false |
 | first_name_kana  | string  | null: false |
-| birth_year       | date    | null: false |
-| birth_month      | date    | null: false |
-| birth_day        | date    | null: false |
+| birthday         | date    | null: false |
 
 ### Association
 
@@ -44,8 +42,8 @@
 
 | Column  | Type       | Options                        |
 | --------| ---------- | ------------------------------ |
-| item_id | references | null: false, foreign_key: true |
-| user_id | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -63,7 +61,7 @@
 | street_number     | string     | null: false                    |
 | building          | string     |                                |
 | phone_number      | string     | null: false                    |
-| item_purchases_id | references | null: false, foreign_key: true |
+| item_purchases    | references | null: false, foreign_key: true |
 
 ### Association
 
