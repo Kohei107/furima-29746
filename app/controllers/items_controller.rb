@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
-  
   def index
   end
 
   def new
     @user = User.new
-
   end
 
   def create
@@ -13,6 +11,4 @@ class ItemsController < ApplicationController
 
   def destroy
   end
-
 end
-
