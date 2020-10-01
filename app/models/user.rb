@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :items
+  has_many :orders
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,8 +11,8 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   with_options presence: true do
-    NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
-    NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/
+    NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/.freeze
+    NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
 
     validates :family_name, format: { with: NAME_REGEX, message: 'Full-width characters.' }
     validates :first_name, format: { with: NAME_REGEX, message: 'Full-width characters.' }

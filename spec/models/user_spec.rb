@@ -1,9 +1,9 @@
 require 'rails_helper'
+
 RSpec.describe User, type: :model do
-  
-    before do
-      @user = FactoryBot.build(:user)
-    end
+  before do
+    @user = FactoryBot.build(:user)
+  end
 
   describe 'ユーザー新規登録' do
     it 'すべての情報が正しいフォーマットで入力されていれば登録できる' do
@@ -47,13 +47,13 @@ RSpec.describe User, type: :model do
       @user.password = 'aaaaaa'
       @user.password_confirmation = 'aaaaaa'
       @user.valid?
-      expect(@user.errors.full_messages). to include("Password  Include both letters and numbers")
+      expect(@user.errors.full_messages). to include('Password  Include both letters and numbers')
     end
     it 'passwordが数字のみだと登録できない' do
       @user.password = '123456'
       @user.password_confirmation = '123456'
       @user.valid?
-      expect(@user.errors.full_messages). to include("Password  Include both letters and numbers")
+      expect(@user.errors.full_messages). to include('Password  Include both letters and numbers')
     end
     it 'passwordが存在してもpassword_confirmationが空では登録できない' do
       @user.password
