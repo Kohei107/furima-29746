@@ -30,6 +30,11 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Category Select')
     end
+    it 'category_idが0だと登録できない' do
+      @item.category_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category Select")
+    end
     it 'condition_idが空だと登録できない' do
       @item.condition_id = ''
       @item.valid?
@@ -53,7 +58,7 @@ RSpec.describe Item, type: :model do
     it 'priceが空だと登録できない' do
       @item.price = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include('Price Out of setting range')
+      expect(@item.errors.full_messages).to include("Price can't be blank", "Price Out of setting range")
     end
     it 'priceが300円未満だと登録できない' do
       @item.price = 299

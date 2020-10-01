@@ -10,6 +10,7 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :detail
+    validates :price
   end
 
   validates :category_id, numericality: { other_than: 0, message: 'Select' }
