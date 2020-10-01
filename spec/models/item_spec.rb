@@ -39,20 +39,40 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Condition Select')
     end
+    it 'condition_idが0だと登録できない' do
+      @item.condition_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Condition Select")
+    end
     it 'shipping_fee_idが空だと登録できない' do
       @item.shipping_fee_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipping fee Select')
+    end
+    it 'shipping_fee_idが0だと登録できない' do
+      @item.shipping_fee_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Shipping fee Select")
     end
     it 'shipping_place_idが空だと登録できない' do
       @item.shipping_place_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include('Shipping place Select')
     end
+    it 'shipping_place_idが0だと登録できない' do
+      @item.shipping_place_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Shipping place Select")
+    end
     it 'prep_time_idが空だと登録できない' do
       @item.prep_time_id = ''
       @item.valid?
       expect(@item.errors.full_messages).to include('Prep time Select')
+    end
+    it 'prep_time_idが0だと登録できない' do
+      @item.prep_time_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Prep time Select")
     end
     it 'priceが空だと登録できない' do
       @item.price = ''
