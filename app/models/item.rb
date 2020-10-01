@@ -3,15 +3,21 @@ class Item < ApplicationRecord
   has_one :orders
   has_one_attached :image
   
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
+
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :detail
+  end
+
   
-  #validates :neme, presence: true
-  #validates :detail, presence: true
-  #validates :category, presence: true
-  #validates :condition, presence: true
-  #validates :shipping_cost, presence: true
-  #validates :shipping_place, presence: true
-  #validates :prep_time, presence: true
-  #validates :price, :presence: true
+  validates :category_id, numericality: { other_than: 0, message: "Select" } 
+  validates :condition_id, numericality: { other_than: 0, message: "Select" } 
+  validates :shipping_fee_id, numericality: { other_than: 0, message: "Select" } 
+  validates :shipping_place_id, numericality: { other_than: 0, message: "Select" } 
+  validates :prep_time_id, numericality: { other_than: 0, message: "Select" } 
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range"}
 end
