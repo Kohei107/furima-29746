@@ -9,7 +9,6 @@ RSpec.describe Item, type: :model do
     it 'すべての情報が正しいフォーマットで入力されていれば登録できる' do
       expect(@item).to be_valid
     end
-
     it 'imageが空だと登録できない' do
       @item.image = nil
       @item.valid?
