@@ -5,6 +5,10 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :shipping_fee
+  belongs_to_active_hash :shipping_place
+  belongs_to_active_hash :prep_time
 
   with_options presence: true do
     validates :image
@@ -20,7 +24,6 @@ class Item < ApplicationRecord
     validates :shipping_place_id
     validates :prep_time_id
   end
-  
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
 
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
 end
