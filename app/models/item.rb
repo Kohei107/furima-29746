@@ -5,6 +5,10 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :shipping_fee
+  belongs_to_active_hash :shipping_place
+  belongs_to_active_hash :prep_time
 
   with_options presence: true do
     validates :image
