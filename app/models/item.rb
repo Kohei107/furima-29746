@@ -24,7 +24,6 @@ class Item < ApplicationRecord
     validates :shipping_place_id
     validates :prep_time_id
   end
-  
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
 
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
 end

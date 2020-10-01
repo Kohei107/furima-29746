@@ -32,7 +32,7 @@ RSpec.describe Item, type: :model do
     it 'category_idが0だと登録できない' do
       @item.category_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category Select")
+      expect(@item.errors.full_messages).to include('Category Select')
     end
     it 'condition_idが空だと登録できない' do
       @item.condition_id = ''
@@ -42,7 +42,7 @@ RSpec.describe Item, type: :model do
     it 'condition_idが0だと登録できない' do
       @item.condition_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Condition Select")
+      expect(@item.errors.full_messages).to include('Condition Select')
     end
     it 'shipping_fee_idが空だと登録できない' do
       @item.shipping_fee_id = ''
@@ -52,7 +52,7 @@ RSpec.describe Item, type: :model do
     it 'shipping_fee_idが0だと登録できない' do
       @item.shipping_fee_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping fee Select")
+      expect(@item.errors.full_messages).to include('Shipping fee Select')
     end
     it 'shipping_place_idが空だと登録できない' do
       @item.shipping_place_id = ''
@@ -62,7 +62,7 @@ RSpec.describe Item, type: :model do
     it 'shipping_place_idが0だと登録できない' do
       @item.shipping_place_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping place Select")
+      expect(@item.errors.full_messages).to include('Shipping place Select')
     end
     it 'prep_time_idが空だと登録できない' do
       @item.prep_time_id = ''
@@ -72,12 +72,12 @@ RSpec.describe Item, type: :model do
     it 'prep_time_idが0だと登録できない' do
       @item.prep_time_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prep time Select")
+      expect(@item.errors.full_messages).to include('Prep time Select')
     end
     it 'priceが空だと登録できない' do
       @item.price = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Price can't be blank", "Price Out of setting range")
+      expect(@item.errors.full_messages).to include("Price can't be blank", 'Price Out of setting range')
     end
     it 'priceが300円未満だと登録できない' do
       @item.price = 299
