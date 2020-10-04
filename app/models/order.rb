@@ -6,7 +6,10 @@ class Order < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_place
 
-  attr_accessor :token, :postal_code, :prefecture_id, :municipality, :street_number, :building, :phone_number
-
-  validates :token, presence: true
+  #attr_accessor :token, :postal_code, :prefecture_id, :municipality, :street_number, :building, :phone_number
+  
+  #with_options presence: true do
+    #validates :token
+  #end
+  
 end
