@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  
   before_action :authenticate_user!
   before_action :my_items
   before_action :sold_out
@@ -15,27 +14,22 @@ class OrdersController < ApplicationController
     if @order_address.valid?
       pay_item
       @order_address.save
-      return redirect_to root_path
+      redirect_to root_path
     else
-      @order_address = OrderAddress.new
       render 'index'
+      @order_address = OrderAddress.new
     end
   end
-  
+
   def my_items
     @item = Item.find(params[:item_id])
     redirect_to root_path unless @item.user != current_user
   end
 
-
   def sold_out
     @item = Item.find(params[:item_id])
-     if @item.order.present?
-      redirect_to root_path
-     end
+    redirect_to root_path if @item.order.present?
   end
-
- 
 
   private
 
@@ -45,12 +39,11 @@ class OrdersController < ApplicationController
 
   def pay_item
     @item = Item.find(params[:item_id])
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-    amount: @item.price,  
-    card: order_params[:token],
-    currency: 'jpy'
-   )
+      amount: @item.price,
+      card: order_params[:token],
+      currency: 'jpy'
+    )
   end
-
 end
