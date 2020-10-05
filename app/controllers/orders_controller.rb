@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   
-  #before_action :move_to_index
+  before_action :authenticate_user!
+  before_action :my_items
+  before_action :sold_out
 
   def index
     @item = Item.find(params[:item_id])
@@ -20,11 +22,21 @@ class OrdersController < ApplicationController
       render 'index'
     end
   end
+  
+  def my_items
+    @item = Item.find(params[:item_id])
+    redirect_to root_path unless @item.user != current_user
+  end
 
-  #def move_to_index
-    #@item = Item.find(params[:item_id])
-    #redirect_to root_path unless user_signed_in? && @item.user == current_user
-  #end
+
+  def sold_out
+    @item = Item.find(params[:item_id])
+     if @item.order.present?
+      redirect_to root_path
+     end
+  end
+
+ 
 
   private
 
