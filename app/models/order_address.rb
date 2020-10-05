@@ -12,7 +12,6 @@ class OrderAddress
   validates :prefecture_id, numericality: { other_than: 0, message: 'Select' }
 
   def save
-    # @item = Item.find(item_id)
     order = Order.create(item_id: item_id, user_id: user_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, street_number: street_number, building: building, phone_number: phone_number, order_id: order.id)
   end
