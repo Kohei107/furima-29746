@@ -1,3 +1,66 @@
+# アプリ名
+
+FURIMA
+
+# 概要
+
+テックキャンプの最終課題にて作成したフリーマーケットのアプリケーションです。
+
+# 本番環境
+
+https://furima-29746.herokuapp.com/
+
+### Basic認証
+ID: salt   
+Password: 1007
+
+### テスト用アカウント等
+購入者用  
+メールアドレス: tom@sample.com  
+パスワード: 1234qwe  
+
+購入用カード情報  
+番号：4242424242424242  
+期限：12月23年   
+セキュリティコード：123  
+
+出品者用  
+メールアドレス名: salt@sample.com  
+パスワード: salt1007
+
+# 使用技術(環境開発)
+
+## バックエンド
+
+Ruby, Ruby on Rails
+
+## フロントエンド
+
+HTML, CSS, Javascript
+
+## データベース
+
+MySQL
+
+## API
+PAY.JP
+
+## インフラ
+
+heroku
+
+
+## ソース管理
+
+GitHub, GithubDesktop
+
+## テスト
+Rspec
+
+## エディタ
+VSCode
+
+
 # テーブル設計
 
 ## users テーブル
